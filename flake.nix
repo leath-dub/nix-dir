@@ -10,8 +10,7 @@
         args = [ "sh" ./builder.sh ];
 
         inherit (pkgs) busybox;
-        inherit src;
-        inherit system;
+        inherit src system;
       };
     };
 }
