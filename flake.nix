@@ -3,16 +3,15 @@
 
   outputs = { self }: let
     in {
-      lib.rawDir = { src, pkgs }: derivation {
-        name = "conf";
+      lib.rawDir = { src, pkgs, system }: derivation {
+        name = "rawDir";
 
         builder = "${pkgs.busybox}/bin/busybox";
         args = [ "sh" ./builder.sh ];
 
-        system = builtins.currentSystem;
-
         inherit (pkgs) busybox;
         inherit src;
+        inherit system;
       };
     };
 }
