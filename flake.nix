@@ -8,16 +8,15 @@
   outputs = { self, nixpkgs, systems }: let
     in {
       lib.rawDir = src: derivation {
-          name = "conf";
+        name = "conf";
 
-          builder = "${nixpkgs.busybox}/bin/busybox";
-          args = [ "sh" ./builder.sh ];
+        builder = "${nixpkgs.busybox}/bin/busybox";
+        args = [ "sh" ./builder.sh ];
 
-          system = builtins.currentSystem;
+        system = builtins.currentSystem;
 
-          inherit (nixpkgs) busybox;
-          inherit src;
-        };
+        inherit (nixpkgs) busybox;
+        inherit src;
       };
-  };
+    };
 }
