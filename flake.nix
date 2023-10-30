@@ -7,8 +7,7 @@
 
   outputs = { self, nixpkgs, systems }: let
     in {
-      templates.default = {
-        lib.rawDir = src: derivation {
+      lib.rawDir = src: derivation {
           name = "conf";
 
           builder = "${nixpkgs.busybox}/bin/busybox";
